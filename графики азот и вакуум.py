@@ -21,6 +21,12 @@ def colom(k,m):                                   # функция возвра�
         col.append(k[i])
     return col
 
+def negativ(n):                                   # функция возвращающая список с отрицательными значениями чисел
+    col = []
+    for i in range(0,len(n),1):
+        col.append(n[i]*(-1))
+    return col
+
 len_colom = len(list(map(int,colom(str_list,23)))) # число элементов в столбце
  
 X = list(range(0,len_colom,1))
@@ -28,7 +34,8 @@ Y1 = list(map(int,colom(str_list,6)))
 Y2 = list(map(int,colom(str_list,7))) 
 Y3 = list(map(int,colom(str_list,8)))
 Y4 = list(map(int,colom(str_list,9)))
-
+Y3 = negativ(Y3)
+Y4 = negativ(Y4)
 
 maxY = max(max(Y1),max(Y2))                                   # максимальное значение по шкале Y
 maxX = len_colom
@@ -42,7 +49,7 @@ ax.xaxis.set_minor_locator(AutoMinorLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(maxY/10))
 ax.yaxis.set_minor_locator(AutoMinorLocator(1))
 ax.set_xlim(0, maxX)
-ax.set_ylim(0, maxY)
+ax.set_ylim(-maxY, maxY)
 
 
 ax.tick_params(which='major', width=1.0)
@@ -53,14 +60,6 @@ ax.tick_params(which='minor', length=5, labelsize=10, labelcolor='0.25')
 ax.grid(linestyle="-", linewidth=0.5, color='.25', zorder=-10)
 
 
-#def negative(cc):
-#    co = []
-#    for i in range (0,len(cc),1):
-#        col.append((k[i])
-#    return co
-
-#qqq = negative(Y3)
-#print(qqq)
 
 ax.plot(X, Y1, c='r', lw=0.5, label="Установленное давление азота", zorder=10)# Красный график
 ax.plot(X, Y2, c='y', lw=3, label="Значение давления азота", zorder=1) # Желтый график
