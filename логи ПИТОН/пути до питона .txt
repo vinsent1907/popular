@@ -1,0 +1,5 @@
+C:\Users\p.galushkin\AppData\Local\Programs\Python\Python37\Scripts\
+C:\Users\p.galushkin\AppData\Local\Programs\Python\Python37\
+C:\Users\p.galushkin\AppData\Local\Programs\Python\Python37-32\Scripts\
+C:\Users\p.galushkin\AppData\Local\Programs\Python\Python37-32\
+C:\Users\p.galushkin\AppData\Local\Programs\Python\Launcher\

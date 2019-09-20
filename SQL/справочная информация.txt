@@ -1,0 +1,104 @@
+UPDATE VentilationData SET 'столбец' = REPLACE ('столбец', "искомое значение", "значение для замены");
+
+06/06/2019
+
+
+UPDATE Day
+SET Day
+WHERE Day LIKE '[0-9][0-9]?[0-9]6%';
+
+
+
+SET Day = Replace(Day, Substring(Day, 4, 2), '11') SQL
+SET Day = Replace(Day, Mid(Day, 4, 2), 11)       Access 
+
+
+
+import pyodbc
+try:
+   connStr = (
+   r"DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};"
+   r"DBQ=D:\ventilation_rev02_DLR.mdb;"
+   )
+   conn = pyodbc.connect(connStr)
+   cursor = conn.cursor()
+   sql = 'SET Day = Replace(Day, Substring(Day, 4, 2), 11)'
+   cursor.execute(sql)
+   conn.commit()
+   print('Месяц успешно изменен...')
+   conn.close()
+except:
+   print('Невозможно обновить Данные. База данных не найдена или открыт Movicon')
+   conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mid ( text, start_position, [number_of_characters] )
+Mid ("Alphabet", 5, 2)
+Result: "ab"
+
+
+UPDATE dbo.YourTable
+SET Column = Replace(Column, Substring(Column, PatIndex('%[^0-9.-]%', Column), 1), '')
+WHERE Column LIKE '%[^0-9.-]%'
+
+
+
+06/06/2019
+
+[0-9][0-9]%[0-9]6_   - SQL
+[0-9][0-9]?[0-9]6*   - Access 
+
+В таблице ниже указаны подстановочные знаки, которые можно использовать
+с оператором Like и количеством чисел или строк.
+
+? или _ (подчеркивание) Любой символ
+* или %  Ноль или больше символов
+#   Любая цифра (0–9)
+[список_символов] Любой символ, входящий в список_символов
+[!список_символов]  Любой символ, не входящий в список_символов
+	
+
+НА ЗАМЕТКУ
+
+Действие символов подстановки в Microsoft Access отличается от действия этих же символов в стандартном SQL. В Microsoft Access символ звездочки используется вместо символа процента для подбора любого числа произвольных символов, а символ знака вопроса – вместо символа подчеркивания для подбора любого одиночного символа. В стандартном SQL символ подчеркивания используется для подбора i любого числа произвольных символов, а символ процента – для подбора любого одиночного символа.
+
+To use this download:
+
+    If you are the user of an application, consult your application documentation for details on how to use the appropriate driver.
+    If you are an application developer using OLEDB, set the Provider argument of the ConnectionString property to “Microsoft.ACE.OLEDB.12.0”
+
+    If you are connecting to Microsoft Office Excel data, add the appropriate Extended Properties of the OLEDB connection string based on the Excel file type:
+
+    File Type (extension)                                             Extended Properties
+    ---------------------------------------------------------------------------------------------
+    Excel 97-2003 Workbook (.xls)                                  "Excel 8.0"
+    Excel Workbook (.xlsx)                             "Excel 12.0 Xml"
+    Excel Macro-enabled workbook (.xlsm)      "Excel 12.0 Macro"
+    Excel Non-XML binary workbook (.xlsb)      "Excel 12.0"
+
+    If you are an application developer using ODBC to connect to Microsoft Office Access data, set the Connection String to “Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=path to mdb/accdb file”
+    If you are an application developer using ODBC to connect to Microsoft Office Excel data, set the Connection String to “Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=path to xls/xlsx/xlsm/xlsb file”
+
+
+https://support.office.com/ru-ru/article/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE%D0%B4%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D1%8B%D1%85-%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2-%D0%BF%D1%80%D0%B8-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B8-%D1%81%D1%82%D1%80%D0%BE%D0%BA-c472b6df-0d3e-4ffc-a21c-bb5721cc460a

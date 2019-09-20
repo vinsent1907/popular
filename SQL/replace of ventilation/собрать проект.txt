@@ -1,0 +1,3 @@
+cd C:\Users\p.galushkin\Desktop\prod\
+pyinstaller --onefile --ascii replace.py
+PAUSE
